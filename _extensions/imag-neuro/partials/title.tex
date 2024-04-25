@@ -1,0 +1,26 @@
+$if(title)$
+\title{$title$}
+$endif$
+
+\author{
+$for(by-author/allbutlast)$
+    $by-author.name.literal$,$if(by-author.affiliations)$
+$$^{$for(by-author.affiliations)$$it.number$$sep$,$endfor$$if(by-author.attributes.corresponding)$\ast$endif$$if(by-author.attributes.equal-contributor)$\dag$endif$}$$
+$elseif(by-author.attributes.corresponding)$
+$$^{\ast}$$
+$endif$
+$endfor$
+$for(by-author/last)$
+    $by-author.name.literal$$if(by-author.affiliations)$
+$$^{$for(by-author.affiliations)$$it.number$$sep$,$endfor$$if(by-author.attributes.corresponding)$\ast$endif$$if(by-author.attributes.equal-contributor)$\dag$endif$}$$
+$elseif(by-author.attributes.corresponding)$
+$$^{\ast}$$
+$endif$
+$endfor$\\
+$for(by-affiliation)$
+{\small $$^{$it.number$}$$$if(it.department)$$it.department$$if(it.name)$, $endif$$endif$$if(it.name)$$it.name$$endif$$if(it.name)$}\\
+{\small $endif$$if(it.address)$$it.address$$endif$$if(it.city)$, $it.city$$endif$$if(it.state)$, $it.state$$endif$$if(it.postal-code)$ $it.postal-code$$endif$$if(it.country)$, $it.country$$endif$}\\
+$endfor$
+$for(by-author)$$if(it.attributes.corresponding)${\small $$^\ast$$Correspondence: $it.email$}\\
+$endif$$endfor$$if(equal-contributor)${\small $$^\dag$$These authors contributed equally.}\\
+$endif$}

@@ -1,0 +1,22 @@
+title: Imag-neuro
+author: Peter Van Dyken
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    common:
+      toc: false
+      filters:
+        - imag-neuro.lua
+    pdf:
+      cite-method: biblatex
+      format-resources:
+        - imag-ms-template.cls
+      template-partials:
+        - "partials/doc-class.tex"
+        - partials/title.tex
+        - partials/before-bib.tex
+        - partials/pandoc.tex
+    html:
+      css: styles.css
+

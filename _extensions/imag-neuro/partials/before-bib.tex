@@ -1,0 +1,31 @@
+$if(code_availability)$
+\section*{Data and Code Availability}
+
+$code_availability$
+$endif$
+
+$if(author_contributions)$
+\section*{Author Contributions}
+
+$author_contributions$
+$endif$
+
+$if(funding)$
+\section*{Funding}
+
+$for(funding)$
+$it.statement$
+$endfor$
+$endif$
+
+$if(conflict_of_interest)$
+\section*{Declaration of Competing Interests}
+
+$conflict_of_interest$
+$endif$
+
+$if(acknowledgements)$
+\section*{Acknowledgements}
+
+$acknowledgements$
+$endif$

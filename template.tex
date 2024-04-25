@@ -1,0 +1,718 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[]{imag-ms-template}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{remark}
+\AtBeginDocument{\renewcommand*{\proofname}{Proof}}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\newtheorem{refremark}{Remark}[section]
+\newtheorem{refsolution}{Solution}[section]
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{biblatex}
+\addbibresource{sample.bib}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Author Usage Template for MIT Journals},
+  pdfauthor={Author 1; Author 2; Author 3},
+  pdfkeywords={keywords1, keywords2, keywords3},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Author Usage Template for MIT Journals}
+
+\author{
+    Author 1,$^{1\ast}$
+    Author 2,$^{1\dag}$
+    Author 3$^{2\dag}$
+\\
+{\small $^{1}$Department of Chemistry, University of Wherever}\\
+{\small An Unknown Address, Wherever 0, USA}\\
+{\small $^{2}$Another Unknown Address, Palookaville 99999, USA}\\
+{\small $^\ast$Correspondence: jsmith@wherever.edu}\\
+{\small $^\dag$These authors contributed equally.}\\
+}
+\begin{document}
+\maketitle
+\begin{abstract}
+This document presents a number of hints about how to set up your paper
+in \LaTeX. We provide a template file,
+\texttt{imag-ms-template-instr.tex}, that you can use to set up the
+\LaTeX~source for your article. An example of the style is the special
+\texttt{\{abstract\}} environment used to set up the abstract you see
+here.
+\end{abstract}
+
+\section{Introduction}\label{introduction}
+
+In this file, we present some tips and sample mark-up to ensure that
+your \LaTeX~file has the smoothest possible journey from review
+manuscript to published paper. We focus here particularly on issues
+related to headings, citations, math, tables, and figures, as those tend
+to be the biggest sticking points. Please use the source file for this
+document, \texttt{imag-ms-template-instr.tex}, as a template for your
+manuscript, cutting and pasting your content into the file at the
+appropriate places.
+
+\newpage{}
+
+\subsection{Front matter}\label{front-matter}
+
+Please use the below tags for the article front matter:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{title}\KeywordTok{:}\AttributeTok{ Author Usage Template for MIT Journals}
+\FunctionTok{author}\KeywordTok{:}
+\AttributeTok{  }\KeywordTok{{-}}\AttributeTok{ }\FunctionTok{name}\KeywordTok{:}\AttributeTok{ Author 1}
+\AttributeTok{    }\FunctionTok{email}\KeywordTok{:}\AttributeTok{ jsmith@wherever.edu}
+\AttributeTok{    }\FunctionTok{affiliations}\KeywordTok{:}
+\AttributeTok{      }\KeywordTok{{-}}\AttributeTok{ }\FunctionTok{id}\KeywordTok{:}\AttributeTok{ wherever}
+\AttributeTok{        }\FunctionTok{department}\KeywordTok{:}\AttributeTok{ Department of Chemistry}
+\AttributeTok{        }\FunctionTok{name}\KeywordTok{:}\AttributeTok{ University of Wherever}
+\AttributeTok{        }\FunctionTok{address}\KeywordTok{:}\AttributeTok{ An Unknown Address}
+\AttributeTok{        }\FunctionTok{city}\KeywordTok{:}\AttributeTok{ Wherever}
+\AttributeTok{        }\FunctionTok{state}\KeywordTok{:}\AttributeTok{ ST}
+\AttributeTok{        }\FunctionTok{country}\KeywordTok{:}\AttributeTok{ USA}
+\AttributeTok{        }\FunctionTok{postal{-}code}\KeywordTok{:}\AttributeTok{ }\DecValTok{00000}
+\AttributeTok{    }\FunctionTok{attributes}\KeywordTok{:}
+\AttributeTok{      }\FunctionTok{corresponding}\KeywordTok{:}\AttributeTok{ }\CharTok{true}
+\AttributeTok{  }\KeywordTok{{-}}\AttributeTok{ }\FunctionTok{name}\KeywordTok{:}\AttributeTok{ Author 2}
+\AttributeTok{    }\FunctionTok{affiliations}\KeywordTok{:}
+\AttributeTok{      }\KeywordTok{{-}}\AttributeTok{ }\FunctionTok{ref}\KeywordTok{:}\AttributeTok{ wherever}
+\AttributeTok{  }\KeywordTok{{-}}\AttributeTok{ }\FunctionTok{name}\KeywordTok{:}\AttributeTok{ Author 3}
+\AttributeTok{    }\FunctionTok{affiliations}\KeywordTok{:}
+\AttributeTok{      }\KeywordTok{{-}}\AttributeTok{ }\FunctionTok{address}\KeywordTok{:}\AttributeTok{ Another Unknown Address}
+\AttributeTok{        }\FunctionTok{city}\KeywordTok{:}\AttributeTok{ Palookaville}
+\AttributeTok{        }\FunctionTok{state}\KeywordTok{:}\AttributeTok{ ST}
+\AttributeTok{        }\FunctionTok{postal{-}code}\KeywordTok{:}\AttributeTok{ }\DecValTok{99999}
+\AttributeTok{        }\FunctionTok{country}\KeywordTok{:}\AttributeTok{ USA}
+\FunctionTok{abstract}\KeywordTok{: }\CharTok{|}
+\NormalTok{  This document presents a number of hints about how to set up your}
+\NormalTok{  paper in \textbackslash{}LaTeX.  We provide a template file,}
+\NormalTok{  \textasciigrave{}imag{-}ms{-}template{-}instr.tex\textasciigrave{}, that you can use to set up the}
+\NormalTok{  \textbackslash{}LaTeX\textbackslash{} source for your article.  An example of the style is the}
+\NormalTok{  special \textasciigrave{}\{abstract\}\textasciigrave{} environment used to set up the}
+\NormalTok{  abstract you see here.}
+\FunctionTok{keywords}\KeywordTok{:}\AttributeTok{ }\KeywordTok{[}\AttributeTok{keywords1}\KeywordTok{,}\AttributeTok{ keywords2}\KeywordTok{,}\AttributeTok{ keywords3}\KeywordTok{]}
+\FunctionTok{author\_contributions}\KeywordTok{: }\CharTok{|}
+\NormalTok{  Please provide details of author contributions here.}
+\FunctionTok{conflict\_of\_interest}\KeywordTok{: }\CharTok{|}
+\NormalTok{  Please declare any competing interests here.}
+\FunctionTok{acknowledgements}\KeywordTok{: }\CharTok{|}
+\NormalTok{  Please include your acknowledgments here, set in a single paragraph. Please do not}
+\NormalTok{  include any acknowledgments in the Supporting Information, or anywhere else in the}
+\NormalTok{  manuscript.}
+\FunctionTok{code\_availability}\KeywordTok{: }\CharTok{|}
+\NormalTok{  Data and Code Availability text (mandatory unless there is no data or code used).}
+\FunctionTok{funding}\KeywordTok{: }\CharTok{|}
+\NormalTok{  Funding text (optional).}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Headings}\label{headings}
+
+Use the standard tags
+\texttt{\textbackslash{}section,\ \textbackslash{}subsection,\ \textbackslash{}subsubsection,\ \textbackslash{}paragraph},
+and \texttt{\textbackslash{}subparagraph} for the Headings
+\texttt{H1,\ H2,\ H3,\ H4}, and \texttt{H5}, respectively.
+
+\subsection{Handling Math, Tables, and
+Figures}\label{handling-math-tables-and-figures}
+
+We suggest using the \texttt{mathtools.sty} file to get various display
+math styles. A few of the codes are given below for easy reference:
+
+\bigskip
+
+\noindent
+
+\begin{tabular}{@{}ll}
+\toprule
+\verb!equation!\\
+\verb!align!\\
+\verb!\[...\]! or \verb!equation*!\\
+\verb!gather!\\
+Various types of matrices, e.g., \verb!pmatrix!, \verb!bmatrix!,
+\verb!vmatrix!, \verb!smallmatrix!,\\
+\verb!alignat!, etc.\\
+\bottomrule
+\end{tabular}
+
+\subsection{Tables}\label{tables}
+
+We suggest using the \verb!threeparttable.sty! file to format the tables
+and their notes properly. Examples are given below:
+
+\begin{verbatim}
+\begin{table}
+\begin{threeparttable}
+\caption{Time of the Transition Between Phase 1 and Phase 2\tnote{$a$}
+\label{tab:label}}
+\begin{tabular}{@{}ll}
+\toprule
+ Run  & Time (min)  \\
+\midrule
+  \textit{l}1  & 260   \\
+  \textit{l}2  & 300   \\
+  \textit{l}3  & 340   \\
+  \textit{h}1  & 270   \\
+  \textit{h}2  & 250   \\
+  \textit{h}3  & 380   \\
+  \textit{r}1  & 370   \\
+  \textit{r}2  & 390   \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item[${a}$]Table note text here.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+\end{verbatim}
+
+\subsubsection*{Output}\label{output}
+
+\begin{table}[h!]
+\begin{threeparttable}
+\caption{Time of the Transition Between Phase 1 and Phase 2\tnote{$a$}
+\label{tab:label}}
+\setlength{\tabcolsep}{45pt}%
+\begin{tabular}{@{}ll}
+\toprule
+ Run  & Time (min)  \\
+\midrule
+  \textit{l}1  & 260   \\
+  \textit{l}2  & 300   \\
+  \textit{l}3  & 340   \\
+  \textit{h}1  & 270   \\
+  \textit{h}2  & 250   \\
+  \textit{h}3  & 380   \\
+  \textit{r}1  & 370   \\
+  \textit{r}2  & 390   \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item[${a}$]Table note text here.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection*{Spanning rules}\label{spanning-rules}
+
+Use \verb!\cmidrule! to obtain spanning of rules from column to column.
+Usage is
+
+\begin{verbatim}
+\cmidrule{fromcolumn-tocolumn}, e.g., \cmidrule{2-3}.
+\end{verbatim}
+
+\subsection{Figures}\label{figures}
+
+Figure callouts within the text should be in the form of
+\LaTeX~references; for example, \verb+\ref{fig1}+.
+
+For inclusion of figures (e.g., Figure~\ref{fig-example_figure}), please
+use code such as:
+
+\begin{verbatim}
+![Example caption text](figure.pdf){#fig-example_figure}
+\end{verbatim}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{figure.pdf}
+
+}
+
+\caption{\label{fig-example_figure}Example caption text}
+
+\end{figure}%
+
+Please use
+\texttt{\textbackslash{}begin\{sidewaystable\}...\textbackslash{}end\{sidewaystable\}}
+and\\
+\texttt{\textbackslash{}begin\{sidwaysfigure\}...\textbackslash{}end\{sidewaysfigure\}}
+to get rotating figures/tables.
+
+\section{Algorithms}\label{algorithms}
+
+For \verb@Algorithms@, please use the standard \LaTeX~supporting file
+\verb!algorithm2e.sty!; the format and the output are given below:
+
+\begin{verbatim}
+\begin{algorithm}[h!]
+\SetAlgoLined
+\SetKwFunction{IL}{InitializeDistance}
+\SetKwFunction{PL}{PropagateInsertion}
+\SetKwFunction{MIN}{Min}
+\SetKwFunction{MX}{Max}
+\SetKwFunction{TOP}{Top}
+\SetKwFunction{Push}{Push}
+\SetKwFunction{Pop}{Pop}
+\SetKwFunction{Append}{Append}
+\SetKwData{Queue}{Queue}
+\KwResult{The length of shortest path from $s$ to $t$}
+ $PreviousLayer=[s]$\;
+ $s.distance = 0$\;
+ \For(\tcc*[f]{Do the computation layer by layer}){i = 1 \KwTo m}{
+   $CurrentLayer = [(i,v_1),(i,v_{2}),\ldots, (i,v_{n}), (i,k)]$\;
+   $x.distance = \infty \ \forall  x \in CurrentLayer$\;
+   \IL{PreviousLayer,CurrentLayer}\;
+   \PL{CurrentLayer}\;
+   $PreviousLayer = CurrentLayer$\;
+ }
+ \KwRet{\MIN{PreviousLayer.distance}}\;
+ \caption{Algorithm for sequence to graph alignment}
+ \label{algo:linear}
+\end{algorithm}
+\end{verbatim}
+
+\subsection*{Output}\label{output-1}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\SetKwFunction{IL}{InitializeDistance}
+\SetKwFunction{PL}{PropagateInsertion}
+\SetKwFunction{MIN}{Min}
+\SetKwFunction{MX}{Max}
+\SetKwFunction{TOP}{Top}
+\SetKwFunction{Push}{Push}
+\SetKwFunction{Pop}{Pop}
+\SetKwFunction{Append}{Append}
+\SetKwData{Queue}{Queue}
+\KwResult{The length of shortest path from $s$ to $t$}
+ $PreviousLayer=[s]$\;
+ $s.distance = 0$\;
+ \For(\tcc*[f]{Do the computation layer by layer}){i = 1 \KwTo m}{
+   $CurrentLayer = [(i,v_1),(i,v_{2}),\ldots, (i,v_{n}), (i,k)]$\;
+   $x.distance = \infty \ \forall  x \in CurrentLayer$\;
+   \IL{PreviousLayer,CurrentLayer}\;
+   \PL{CurrentLayer}\;
+   $PreviousLayer = CurrentLayer$\;
+ }
+ \KwRet{\MIN{PreviousLayer.distance}}\;
+ \caption{Algorithm for sequence to graph alignment}
+ \label{algo:linear}
+\end{algorithm}
+
+\section{Lists}\label{lists}
+
+Please use the standard tags for Numbered lists and Bulleted lists; for
+example,
+
+\subsection*{Numbered lists}\label{numbered-lists}
+
+\begin{verbatim}
+1. Text for first-level numbered lists text text text text
+   Text for first-level numbered lists text text text text: 
+  a. Text for second level numbered lists text text text text Text for second level numbered lists text text text text 
+  b. Text text text text Text for second level numbered lists text text text text 
+2. Text text text text
+   Text for first-level numbered lists text text text text 
+\end{verbatim}
+
+\subsection*{Output}\label{output-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Text for first-level numbered lists text text text text Text for
+  first-level numbered lists text text text text:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    Text for second level numbered lists text text text text Text for
+    second level numbered lists text text text text
+  \item
+    Text text text text Text for second level numbered lists text text
+    text text
+  \end{enumerate}
+\item
+  Text text text text Text for first-level numbered lists text text text
+  text
+\end{enumerate}
+
+\subsection*{Bulleted lists}\label{bulleted-lists}
+
+\begin{verbatim}
+* Text for first-level bulleted lists text text text text
+  Text for first-level bulleted lists text text text text 
+    + text for second level bulleted lists text text text text
+      Text for second level bulleted lists text text text text 
+    + text text text text Text for second level bulleted lists
+      text text text text 
+* Text text text text Text for first-level bulleted lists
+  text text text text 
+\end{verbatim}
+
+\subsection*{Output}\label{output-3}
+
+\begin{itemize}
+\tightlist
+\item
+  Text for first-level bulleted lists text text text text Text for
+  first-level bulleted lists text text text text
+
+  \begin{itemize}
+  \tightlist
+  \item
+    text for second level bulleted lists text text text text Text for
+    second level bulleted lists text text text text
+  \item
+    text text text text Text for second level bulleted lists text text
+    text text
+  \end{itemize}
+\item
+  Text text text text Text for first-level bulleted lists text text text
+  text
+\end{itemize}
+
+\subsection*{Extract/Quote}\label{extractquote}
+
+Use the standard tag \verb!\begin{quote}...\end{quote}! for quoted text;
+for example,
+
+\begin{verbatim}
+> Text for quoted text text text text text text text text text text text
+> text text text text text text text text text text text text text text 
+\end{verbatim}
+
+\subsection*{Output}\label{output-4}
+
+\begin{quote}
+Text for quoted text text text text text text text text text text text
+text text text text text text text text text text text text text text
+\end{quote}
+
+\section{Footnote}\label{footnote}
+
+Use a Quarto footnote\footnote{This is a footnote} to get footnotes at
+the bottom of the page.
+
+\section{Special Fonts}\label{special-fonts}
+
+Use the standard \LaTeX~tags \verb!\mathcal!, \verb!\mathscr!, and
+\verb!\mathbb! to get characters in special fonts such as
+\(\mathcal{A}, \mathscr{A}\), and \(\mathbb{A}\), respectively.
+
+\section{Enunciation or Math Heads}\label{enunciation-or-math-heads}
+
+Generally \verb!theorem!, \verb!lemma!, etc., are called Enunciation or
+Math heads. In this template, we define some standard enunciations
+(\verb!theorem!, \verb!lemma!, \verb!corollary!).
+
+\subsection*{Sample Input/Output}\label{sample-inputoutput}
+
+\subsubsection*{Input}\label{input}
+
+\begin{verbatim}
+::: {#thm-line}
+The equation of any straight line, called a linear equation, can be written as:
+
+$$
+y = mx + b
+$$
+:::
+\end{verbatim}
+
+\subsubsection*{Output}\label{output-5}
+
+\begin{theorem}[]\protect\hypertarget{thm-line}{}\label{thm-line}
+
+The equation of any straight line, called a linear equation, can be
+written as:
+
+\[
+y = mx + b
+\]
+
+\end{theorem}
+
+\subsection{Define Own Math
+Heads/Enunciation}\label{define-own-math-headsenunciation}
+
+You are allowed to define your own enunciations; the format is given
+below:
+
+\begin{verbatim}
+\newtheorem{short name of the head}{Head to Display}
+\end{verbatim}
+
+\subsubsection*{Example}\label{example}
+
+If you need to define a group of text under the head ``Proposition,'\,'
+then you have to define it as
+
+\begin{verbatim}
+\newtheorem{proposition}{Proposition}
+\end{verbatim}
+
+\newtheorem{proposition}{Proposition}
+\begin{proposition}
+This is a test for math head ``Proposition'' text text text text
+\end{proposition}
+
+\subsection{Unnumbered Math
+Heads/Enunciation}\label{unnumbered-math-headsenunciation}
+
+Just introduce \verb!*!, which makes the numbered math head text into an
+unnumbered math head; for example,
+
+\begin{verbatim}
+\begin{theorem*}
+This is a test for unnumbered math head ``Theorem'' text text text text
+\end{theorem*}
+\end{verbatim}
+
+\begin{theorem*}
+This is a test for unnumbered math head ``Theorem'' text text text text
+\end{theorem*}
+
+\section{Bibliography/References with APA
+Style}\label{bibliographyreferences-with-apa-style}
+
+As per MIT standards, we fixed the Reference style \verb!APA! in the
+template with the combination of the supporting file \verb!biblatex! and
+\verb!natbib! options, which help to achieve various types of
+bibliography cross links. Those details are given below:
+
+\subsection{Formatting Citations}\label{formatting-citations}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Type & Results \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{@ref2} & Goossens et al.~(1993) \\
+\texttt{@ref2\ {[}chap.\ 2{]}} & Goossens et al.~(1993, chap.~2) \\
+\texttt{{[}@ref2{]}} & (Goossens et al., 1993) \\
+\texttt{{[}@ref2,\ chap.\ 2{]}} & (Goossens et al., 1993, chap.~2) \\
+\texttt{{[}see\ @ref2{]}} & (see Goossens et al., 1993) \\
+\texttt{{[}see\ @ref2,\ chap.\ 2{]}} & (see Goossens et al., 1993,
+chap.~2) \\
+\end{longtable}
+
+\bigskip
+
+\textbf{Note}: Please use \textbf{biber} (biber.exe in Windows) to get
+better output for References.
+
+\nocite{*}
+
+\subsection{Example Citations}\label{example-citations}
+
+See \textcite{Einstein1905} and \autocite{Goossens1993,Knuth1986}. Also
+see \textcite{Chen2023}.
+
+\section{Note to User}\label{note-to-user}
+
+We have already included almost all the required \texttt{.sty} files in
+the \LaTeX~template \verb!imag-ms-template.cls!; hence, there is no need
+to call those in your \texttt{.tex} application files.
+
+\subsection*{General Notes}\label{general-notes}
+
+\noindent This template will work in most recent \TeX~distributions
+(e.g., MiKTeX, TeXLive) with any type of \TeX~engines, such as \LaTeX,
+PDF\LaTeX, Xe\LaTeX, and Lua\LaTeX, as well as in all types of OS, such
+as MS-Windows, Mac OS X, and Linux. It will also work well in Overleaf.
+
+\section*{Data and Code Availability}
+
+Data and Code Availability text (mandatory unless there is no data or
+code used).
+
+\section*{Author Contributions}
+
+Please provide details of author contributions here.
+
+\section*{Funding}
+
+Funding text (optional).
+
+\section*{Declaration of Competing Interests}
+
+Please declare any competing interests here.
+
+\section*{Acknowledgements}
+
+Please include your acknowledgments here, set in a single paragraph.
+Please do not include any acknowledgments in the Supporting Information,
+or anywhere else in the manuscript.
+
+\printbibliography
+
+
+\end{document}

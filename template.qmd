@@ -1,0 +1,537 @@
+---
+title: Author Usage Template for MIT Journals
+format:
+  imag-neuro-pdf:
+    keep-tex: true  
+  imag-neuro-html: default
+author:
+  - name: Author 1
+    email: jsmith@wherever.edu
+    affiliations:
+      - id: wherever
+        department: Department of Chemistry
+        name: University of Wherever
+        address: An Unknown Address
+        city: Wherever
+        state: ST
+        country: USA
+        postal-code: 00000
+    attributes:
+      corresponding: true
+  - name: Author 2
+    affiliations:
+      - ref: wherever
+    attributes:
+      equal-contributor: true
+  - name: Author 3
+    affiliations:
+      - address: Another Unknown Address
+        city: Palookaville
+        state: ST
+        postal-code: 99999
+        country: USA
+    attributes:
+      equal-contributor: true
+abstract: |
+  This document presents a number of hints about how to set up your
+  paper in \LaTeX.  We provide a template file,
+  `imag-ms-template-instr.tex`, that you can use to set up the
+  \LaTeX\ source for your article.  An example of the style is the
+  special `{abstract}` environment used to set up the
+  abstract you see here.
+keywords: [keywords1, keywords2, keywords3]
+author_contributions: |
+  Please provide details of author contributions here.
+conflict_of_interest: |
+  Please declare any competing interests here.
+acknowledgements: |
+  Please include your acknowledgments here, set in a single paragraph. Please do not
+  include any acknowledgments in the Supporting Information, or anywhere else in the
+  manuscript.
+code_availability: |
+  Data and Code Availability text (mandatory unless there is no data or code used).
+funding: |
+  Funding text (optional).
+
+bibliography: sample.bib  
+---
+
+# Introduction
+
+In this file, we present some tips and sample mark-up to ensure that your
+\LaTeX\ file has the smoothest possible journey from review manuscript
+to published paper.  We focus here particularly on
+issues related to headings, citations, math, tables, and
+figures, as those tend to be the biggest sticking points.  Please use
+the source file for this document, `imag-ms-template-instr.tex`, as a template
+for your manuscript, cutting and pasting your content into the file at
+the appropriate places.
+
+<!--
+ now two fake paragraphs to illustrate how paragraph
+ spacing/indentation looks
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
+-->
+
+{{< pagebreak >}}
+
+## Front matter
+
+Please use the below tags for the article front matter:
+
+```yaml
+title: Author Usage Template for MIT Journals
+author:
+  - name: Author 1
+    email: jsmith@wherever.edu
+    affiliations:
+      - id: wherever
+        department: Department of Chemistry
+        name: University of Wherever
+        address: An Unknown Address
+        city: Wherever
+        state: ST
+        country: USA
+        postal-code: 00000
+    attributes:
+      corresponding: true
+  - name: Author 2
+    affiliations:
+      - ref: wherever
+  - name: Author 3
+    affiliations:
+      - address: Another Unknown Address
+        city: Palookaville
+        state: ST
+        postal-code: 99999
+        country: USA
+abstract: |
+  This document presents a number of hints about how to set up your
+  paper in \LaTeX.  We provide a template file,
+  `imag-ms-template-instr.tex`, that you can use to set up the
+  \LaTeX\ source for your article.  An example of the style is the
+  special `{abstract}` environment used to set up the
+  abstract you see here.
+keywords: [keywords1, keywords2, keywords3]
+author_contributions: |
+  Please provide details of author contributions here.
+conflict_of_interest: |
+  Please declare any competing interests here.
+acknowledgements: |
+  Please include your acknowledgments here, set in a single paragraph. Please do not
+  include any acknowledgments in the Supporting Information, or anywhere else in the
+  manuscript.
+code_availability: |
+  Data and Code Availability text (mandatory unless there is no data or code used).
+funding: |
+  Funding text (optional).
+
+```
+
+## Headings
+
+Use the standard tags `\section, \subsection, \subsubsection, \paragraph`, and `\subparagraph` for the Headings `H1, H2, H3, H4`, and `H5`, respectively.
+
+## Handling Math, Tables, and Figures
+
+We suggest using the `mathtools.sty` file to get various 
+display math styles. A few of the codes are given below for easy
+reference:
+
+\bigskip
+
+\noindent\begin{tabular}{@{}ll}
+\toprule
+\verb!equation!\\
+\verb!align!\\
+\verb!\[...\]! or \verb!equation*!\\
+\verb!gather!\\
+Various types of matrices, e.g., \verb!pmatrix!, \verb!bmatrix!,
+\verb!vmatrix!, \verb!smallmatrix!,\\
+\verb!alignat!, etc.\\
+\bottomrule
+\end{tabular}
+
+
+## Tables  
+
+We suggest using the \verb!threeparttable.sty! file to format the tables
+and their notes properly. Examples are given below:
+
+```
+\begin{table}
+\begin{threeparttable}
+\caption{Time of the Transition Between Phase 1 and Phase 2\tnote{$a$}
+\label{tab:label}}
+\begin{tabular}{@{}ll}
+\toprule
+ Run  & Time (min)  \\
+\midrule
+  \textit{l}1  & 260   \\
+  \textit{l}2  & 300   \\
+  \textit{l}3  & 340   \\
+  \textit{h}1  & 270   \\
+  \textit{h}2  & 250   \\
+  \textit{h}3  & 380   \\
+  \textit{r}1  & 370   \\
+  \textit{r}2  & 390   \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item[${a}$]Table note text here.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+```
+
+### Output {.unnumbered .unlisted}
+
+\begin{table}[h!]
+\begin{threeparttable}
+\caption{Time of the Transition Between Phase 1 and Phase 2\tnote{$a$}
+\label{tab:label}}
+\setlength{\tabcolsep}{45pt}%
+\begin{tabular}{@{}ll}
+\toprule
+ Run  & Time (min)  \\
+\midrule
+  \textit{l}1  & 260   \\
+  \textit{l}2  & 300   \\
+  \textit{l}3  & 340   \\
+  \textit{h}1  & 270   \\
+  \textit{h}2  & 250   \\
+  \textit{h}3  & 380   \\
+  \textit{r}1  & 370   \\
+  \textit{r}2  & 390   \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item[${a}$]Table note text here.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+## Spanning rules {.unnumbered .unlisted}
+
+Use \verb!\cmidrule! to obtain spanning of rules from column to
+column. Usage is
+
+```
+\cmidrule{fromcolumn-tocolumn}, e.g., \cmidrule{2-3}.
+```
+
+## Figures
+
+Figure callouts within the text should be
+in the form of \LaTeX\ references; for example, \verb+\ref{fig1}+.
+
+<!--
+For the
+figures themselves, treatment can differ depending on whether the
+manuscript is an initial submission or a final revision for acceptance
+and publication.  For an initial submission and review copy, you can
+use the \LaTeX\ \verb+{figure}+ environment and the
+\verb+\includegraphics+ command to include your PostScript figures at
+the end of the compiled file.  For the final revision,
+however, the \verb+{figure}+ environment should \textit{not} be used;
+instead, the figure captions themselves should be typed in as regular
+text at the end of the source file (an example is included here), and
+the figures should be uploaded separately according to the Art
+Department's instructions.
+-->
+
+For inclusion of figures (e.g., @fig-example_figure), please use code such as:
+
+```
+![Example caption text](figure.pdf){#fig-example_figure}
+```
+
+![Example caption text](figure.pdf){#fig-example_figure}
+
+
+Please use `\begin{sidewaystable}...\end{sidewaystable}` and\
+`\begin{sidwaysfigure}...\end{sidewaysfigure}` to get rotating figures/tables.
+
+
+# Algorithms
+
+For \verb@Algorithms@, please use the standard \LaTeX\ supporting file
+\verb!algorithm2e.sty!; the format and the output are given below:
+
+```
+\begin{algorithm}[h!]
+\SetAlgoLined
+\SetKwFunction{IL}{InitializeDistance}
+\SetKwFunction{PL}{PropagateInsertion}
+\SetKwFunction{MIN}{Min}
+\SetKwFunction{MX}{Max}
+\SetKwFunction{TOP}{Top}
+\SetKwFunction{Push}{Push}
+\SetKwFunction{Pop}{Pop}
+\SetKwFunction{Append}{Append}
+\SetKwData{Queue}{Queue}
+\KwResult{The length of shortest path from $s$ to $t$}
+ $PreviousLayer=[s]$\;
+ $s.distance = 0$\;
+ \For(\tcc*[f]{Do the computation layer by layer}){i = 1 \KwTo m}{
+   $CurrentLayer = [(i,v_1),(i,v_{2}),\ldots, (i,v_{n}), (i,k)]$\;
+   $x.distance = \infty \ \forall  x \in CurrentLayer$\;
+   \IL{PreviousLayer,CurrentLayer}\;
+   \PL{CurrentLayer}\;
+   $PreviousLayer = CurrentLayer$\;
+ }
+ \KwRet{\MIN{PreviousLayer.distance}}\;
+ \caption{Algorithm for sequence to graph alignment}
+ \label{algo:linear}
+\end{algorithm}
+```
+
+## Output {.unnumbered .unlisted}
+
+\begin{algorithm}[h!]
+\SetAlgoLined
+\SetKwFunction{IL}{InitializeDistance}
+\SetKwFunction{PL}{PropagateInsertion}
+\SetKwFunction{MIN}{Min}
+\SetKwFunction{MX}{Max}
+\SetKwFunction{TOP}{Top}
+\SetKwFunction{Push}{Push}
+\SetKwFunction{Pop}{Pop}
+\SetKwFunction{Append}{Append}
+\SetKwData{Queue}{Queue}
+\KwResult{The length of shortest path from $s$ to $t$}
+ $PreviousLayer=[s]$\;
+ $s.distance = 0$\;
+ \For(\tcc*[f]{Do the computation layer by layer}){i = 1 \KwTo m}{
+   $CurrentLayer = [(i,v_1),(i,v_{2}),\ldots, (i,v_{n}), (i,k)]$\;
+   $x.distance = \infty \ \forall  x \in CurrentLayer$\;
+   \IL{PreviousLayer,CurrentLayer}\;
+   \PL{CurrentLayer}\;
+   $PreviousLayer = CurrentLayer$\;
+ }
+ \KwRet{\MIN{PreviousLayer.distance}}\;
+ \caption{Algorithm for sequence to graph alignment}
+ \label{algo:linear}
+\end{algorithm}
+
+# Lists
+
+Please use the standard tags for Numbered lists and Bulleted lists; for example,
+
+## Numbered lists {.unnumbered .unlisted}
+
+```
+1. Text for first-level numbered lists text text text text
+   Text for first-level numbered lists text text text text: 
+  a. Text for second level numbered lists text text text text Text for second level numbered lists text text text text 
+  b. Text text text text Text for second level numbered lists text text text text 
+2. Text text text text
+   Text for first-level numbered lists text text text text 
+```
+
+## Output {.unnumbered .unlisted}
+
+1. Text for first-level numbered lists text text text text
+   Text for first-level numbered lists text text text text: 
+    a. Text for second level numbered lists text text text text Text for second level numbered lists text text text text 
+    b. Text text text text Text for second level numbered lists text text text text 
+2. Text text text text
+   Text for first-level numbered lists text text text text 
+
+## Bulleted lists {.unnumbered .unlisted}
+
+```
+* Text for first-level bulleted lists text text text text
+  Text for first-level bulleted lists text text text text 
+    + text for second level bulleted lists text text text text
+      Text for second level bulleted lists text text text text 
+    + text text text text Text for second level bulleted lists
+      text text text text 
+* Text text text text Text for first-level bulleted lists
+  text text text text 
+```
+
+## Output {.unnumbered .unlisted}
+
+* Text for first-level bulleted lists text text text text
+  Text for first-level bulleted lists text text text text 
+  + text for second level bulleted lists text text text text
+    Text for second level bulleted lists text text text text 
+  + text text text text Text for second level bulleted lists
+    text text text text 
+* Text text text text Text for first-level bulleted lists
+  text text text text 
+
+## Extract/Quote {.unnumbered .unlisted}
+
+Use the standard tag \verb!\begin{quote}...\end{quote}! for quoted text; for example,
+
+```
+> Text for quoted text text text text text text text text text text text
+> text text text text text text text text text text text text text text 
+```
+
+## Output {.unnumbered .unlisted}
+
+> Text for quoted text text text text text text text text text text text
+> text text text text text text text text text text text text text text 
+
+# Footnote
+
+Use a Quarto footnote^[This is a footnote] to get footnotes at the
+bottom of the page.
+
+# Special Fonts
+
+Use the standard \LaTeX\ tags \verb!\mathcal!, \verb!\mathscr!, and
+\verb!\mathbb! to get characters in special fonts such as
+$\mathcal{A}, \mathscr{A}$, and $\mathbb{A}$, respectively.
+
+# Enunciation or Math Heads
+
+Generally \verb!theorem!, \verb!lemma!, etc., are called
+Enunciation or Math heads. In this template, we define some standard
+enunciations (\verb!theorem!, \verb!lemma!, \verb!corollary!).
+
+## Sample Input/Output {.unnumbered .unlisted}
+
+### Input {.unnumbered .unlisted}
+
+```
+::: {#thm-line}
+The equation of any straight line, called a linear equation, can be written as:
+
+$$
+y = mx + b
+$$
+:::
+```
+
+### Output {.unnumbered .unlisted}
+
+::: {#thm-line}
+The equation of any straight line, called a linear equation, can be written as:
+
+$$
+y = mx + b
+$$
+:::
+
+
+## Define Own Math Heads/Enunciation
+
+You are allowed to define your own enunciations; the format is given
+below:
+
+```
+\newtheorem{short name of the head}{Head to Display}
+```
+
+### Example {.unnumbered .unlisted}
+
+If you need to define a group of text under the head ``Proposition,''
+then you have to define it as 
+
+```
+\newtheorem{proposition}{Proposition}
+```
+
+\newtheorem{proposition}{Proposition}
+\begin{proposition}
+This is a test for math head ``Proposition'' text text text text
+\end{proposition}
+
+## Unnumbered Math Heads/Enunciation
+
+Just introduce \verb!*!, which makes the numbered math head text
+into an unnumbered math head; for example,
+
+\begin{verbatim}
+\begin{theorem*}
+This is a test for unnumbered math head ``Theorem'' text text text text
+\end{theorem*}
+\end{verbatim}
+
+\begin{theorem*}
+This is a test for unnumbered math head ``Theorem'' text text text text
+\end{theorem*}
+
+# Bibliography/References with APA Style
+
+As per MIT standards, we fixed the Reference style \verb!APA! in
+the template with the combination of the supporting file
+\verb!biblatex! and \verb!natbib! options, which
+help to achieve various types of bibliography cross links. Those details are given below:
+
+## Formatting Citations
+
+| Type                   | Results                              |
+|------------------------|--------------------------------------|
+| `@ref2`                | Goossens et al. (1993)               |
+| `@ref2 [chap. 2]`      | Goossens et al. (1993, chap. 2)      |
+| `[@ref2]`              | (Goossens et al., 1993)              |
+| `[@ref2, chap. 2]`     | (Goossens et al., 1993, chap. 2)     |
+| `[see @ref2]`          | (see Goossens et al., 1993)          |
+| `[see @ref2, chap. 2]` | (see Goossens et al., 1993, chap. 2) |
+
+\bigskip
+
+**Note**: Please use **biber** (biber.exe in Windows) to get
+better output for References.
+
+\nocite{*}
+
+## Example Citations
+
+See @Einstein1905 and [@Goossens1993;@Knuth1986]. Also see @Chen2023.
+
+
+# Note to User
+
+We have already included almost all the required \texttt{.sty} files in the
+\LaTeX\ template \verb!imag-ms-template.cls!; hence, there is no need to call those in
+your \texttt{.tex} application files.
+
+<!--
+%%%% commented out as it doesn't work, but isn't really needed anyway
+%\section{To add any instruction to Comp}
+%
+%Please use the tag \verb!\notetocomp! to display any important
+%note/info to typesetter/comp/publisher, this will produce the output
+%in margin, example shown below:
+%
+%\begin{verbatim}
+%\notetocomp{Note to comp/publisher}
+%\end{verbatim}
+%
+%\subsection*{Output}
+%
+%This is for test \notetocomp{Note to comp/publisher} this is for test
+-->
+
+## General Notes {.unnumbered .unlisted}
+
+\noindent This template will work in most recent \TeX\ distributions
+(e.g., MiKTeX, TeXLive) with any type of \TeX\ engines, such as
+\LaTeX, PDF\LaTeX, Xe\LaTeX, and Lua\LaTeX, as well as in all types of OS, such
+as MS-Windows, Mac OS X, and Linux. It will also work well in Overleaf.
+
+
+
+
+

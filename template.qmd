@@ -52,6 +52,8 @@ code_availability: |
   Data and Code Availability text (mandatory unless there is no data or code used).
 funding: |
   Funding text (optional).
+ethics: |
+  Ethics statement.
 
 bibliography: sample.bib  
 ---

@@ -15,7 +15,7 @@ author:
         city: Wherever
         state: ST
         country: USA
-        postal-code: 00000
+        postal-code: "00000"
     attributes:
       corresponding: true
   - name: Author 2
@@ -28,7 +28,7 @@ author:
       - address: Another Unknown Address
         city: Palookaville
         state: ST
-        postal-code: 99999
+        postal-code: '99999'
         country: USA
     attributes:
       equal-contributor: true

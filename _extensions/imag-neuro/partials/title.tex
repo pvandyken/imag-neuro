@@ -18,8 +18,8 @@ $$^{\ast}$$
 $endif$
 $endfor$\\
 $for(by-affiliation)$
-{\small $$^{$it.number$}$$$if(it.department)$$it.department$$if(it.name)$, $endif$$endif$$if(it.name)$$it.name$$endif$$if(it.name)$}\\
-{\small $endif$$if(it.address)$$it.address$$endif$$if(it.city)$, $it.city$$endif$$if(it.state)$, $it.state$$endif$$if(it.postal-code)$ $it.postal-code$$endif$$if(it.country)$, $it.country$$endif$}\\
+{\small $$^{$it.number$}$$$for(it.lines)$$it$$sep$}\\
+{\small $endfor$}
 $endfor$
 $for(by-author)$$if(it.attributes.corresponding)${\small $$^\ast$$Correspondence: $it.email$}\\
 $endif$$endfor$$if(equal-contributor)${\small $$^\dag$$These authors contributed equally.}\\

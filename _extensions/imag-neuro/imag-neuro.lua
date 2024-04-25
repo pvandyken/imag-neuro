@@ -3,7 +3,7 @@ return {
     {
       Meta = function(meta)
         for _, author in pairs(meta['by-author']) do
-            if author['attributes']['equal-contributor'] then
+            if author['attributes'] and author['attributes']['equal-contributor'] then
                 meta['equal-contributor'] = true
             end
         end

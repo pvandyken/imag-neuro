@@ -16,6 +16,7 @@ contributes:
         - "partials/doc-class.tex"
         - partials/title.tex
         - partials/before-bib.tex
+        - partials/before-body.tex
         - partials/pandoc.tex
     html:
       css: styles.css
